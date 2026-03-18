@@ -1,4 +1,4 @@
-# HTML/CSS Mastery - Interactive Lecture Demos
+# Lecture Demos
 
 A simple, flat-themed interactive demo website designed for teaching HTML and CSS fundamentals. 
 
