@@ -1,0 +1,25 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - amx/prod
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to den
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/amx/lecture/
+            git pull origin amx/prod
+            cd /home/amx/lecture/
+            docker compose up -d

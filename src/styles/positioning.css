@@ -1,0 +1,126 @@
+.demo-wrapper {
+  margin-top: var(--spacing-md);
+  padding: 0;
+  overflow: hidden;
+  transform: none !important; /* Prevents .card:hover from creating a new containing block for position: fixed */
+}
+
+.scroll-hint {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  background: var(--bg-color);
+  padding: var(--spacing-sm);
+  border-bottom: 2px dashed var(--border);
+  font-weight: 600;
+}
+
+/* We give the parent relative so absolute children are contained */
+/* Also give it a fixed height and scroll purely to demonstrate sticky/fixed easier inside the context */
+.demo-area {
+  position: relative;
+  background: white;
+  height: 400px;
+  overflow-y: auto;
+  border: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.box {
+  width: 150px;
+  padding: var(--spacing-md);
+  background: var(--text-secondary);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.target-box {
+  background: var(--primary);
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  width: 180px;
+}
+
+.spacer {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-color);
+  color: var(--text-secondary);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  margin: var(--spacing-sm) 0;
+}
+
+.info-panel {
+  background: var(--surface);
+  border-left: 4px solid var(--primary);
+  padding: var(--spacing-md);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.offset-sliders {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.slider-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.slider-group span {
+  color: var(--primary);
+}
+
+.slider-group input {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.info-panel h3 {
+  color: var(--primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Positioning Classes toggled by JS */
+.pos-static {
+  position: static;
+}
+
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.pos-sticky {
+  position: sticky;
+}

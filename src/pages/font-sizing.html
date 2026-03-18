@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Font Sizing Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/font-sizing.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Understanding Responsive Typography</h1>
+        <p>Why <code>px</code> fails for accessibility, and how <code>rem</code> and <code>em</code> scale gracefully.</p>
+      </div>
+
+      <div class="info-panel">
+        <h3>Why Pixels Are Problematic</h3>
+        <p>Pixels (<code>px</code>) are absolute units. If a user changes their browser's default font size for accessibility (e.g., from 16px to 24px because of poor vision), elements sized in pixels <strong>will not scale up</strong>. Relative units like <code>rem</code> and <code>em</code> respect the user's preferences.</p>
+      </div>
+
+      <div class="controls font-controls">
+        <div class="control-group">
+          <label for="rootFontSize">Root Font Size Options: <span id="rootValDisplay">16px</span></label>
+          <div class="btn-group">
+            <button class="btn btn-secondary root-btn" data-size="12px">Small (12px)</button>
+            <button class="btn btn-secondary root-btn active" data-size="16px">Default (16px)</button>
+            <button class="btn btn-secondary root-btn" data-size="24px">Large (24px)</button>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label for="parentFontSize">Parent Container Font Size Options: <span id="parentValDisplay">16px</span></label>
+          <div class="btn-group">
+            <button class="btn btn-secondary parent-btn" data-size="12px">Small (12px)</button>
+            <button class="btn btn-secondary parent-btn active" data-size="16px">Default (16px)</button>
+            <button class="btn btn-secondary parent-btn" data-size="24px">Large (24px)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-wrapper card">
+        <div class="demo-area" id="demoContainer">
+          
+          <div class="demo-row px-demo">
+            <div class="label-col">
+              <h4>Fixed Pixels (<code>px</code>)</h4>
+              <small>Ignores both root and parent changes.</small>
+            </div>
+            <div class="text-col">
+              <p class="sample-text text-px">The quick brown fox jumps over the lazy dog. (Always 16px)</p>
+            </div>
+          </div>
+
+          <div class="demo-row rem-demo">
+            <div class="label-col">
+              <h4>Root EM (<code>rem</code>)</h4>
+              <small>Scales exactly with the <em>Root</em> font size.</small>
+            </div>
+            <div class="text-col">
+              <p class="sample-text text-rem">The quick brown fox jumps over the lazy dog. (1 rem)</p>
+            </div>
+          </div>
+
+          <div class="demo-row em-demo">
+            <div class="label-col">
+              <h4>Element EM (<code>em</code>)</h4>
+              <small>Scales with the <em>Parent Context</em> font size.</small>
+            </div>
+            <div class="text-col">
+              <p class="sample-text text-em">The quick brown fox jumps over the lazy dog. (1 em)</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/scripts/font-sizing.js"></script>
+  </body>
+</html>

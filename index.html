@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <style>
+      .demos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+        margin-top: var(--spacing-lg);
+      }
+      .demo-card {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .demo-card h2 {
+        color: var(--text-primary);
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        margin-bottom: var(--spacing-sm);
+      }
+      .demo-card p {
+        flex-grow: 1;
+        margin-bottom: var(--spacing-md);
+      }
+      .demo-meta {
+        font-size: 0.75rem;
+        color: var(--text-primary);
+        background: var(--border);
+        padding: 4px 10px;
+        border-radius: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: inline-block;
+        align-self: flex-start;
+        margin-bottom: var(--spacing-sm);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>CSS Fundamentals</h1>
+        <p>Interactive demos for understanding core CSS concepts</p>
+      </div>
+
+      <div class="demos-grid">
+        <a href="/src/pages/positioning.html" class="card demo-card">
+          <div class="demo-meta">01</div>
+          <h2>Positioning</h2>
+          <p>Learn how static, relative, absolute, fixed, and sticky positioning affects element placement.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/font-sizing.html" class="card demo-card">
+          <div class="demo-meta">02</div>
+          <h2>Font Sizing</h2>
+          <p>Understand why pixels are rigid and how rem/em provide scalable, accessible typography.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/display.html" class="card demo-card">
+          <div class="demo-meta">03</div>
+          <h2>Display & Visibility</h2>
+          <p>Explore inline, block, inline-block layout flows and the difference between hidden and none.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/box-model.html" class="card demo-card">
+          <div class="demo-meta">04</div>
+          <h2>The Box Model</h2>
+          <p>Visualize the difference between content-box and border-box sizing with interactive sliders.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/flexbox.html" class="card demo-card">
+          <div class="demo-meta">05</div>
+          <h2>Flexbox</h2>
+          <p>Master one-dimensional layouts by controlling alignment, direction, and wrapping of flex items.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/grid.html" class="card demo-card">
+          <div class="demo-meta">06</div>
+          <h2>CSS Grid</h2>
+          <p>Master two-dimensional layouts by controlling rows, columns, and internal gaps.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+
+        <a href="/src/pages/specificity.html" class="card demo-card">
+          <div class="demo-meta">07</div>
+          <h2>Selectors & Specificity</h2>
+          <p>Understand how CSS decides which rules apply when conflicts occur using the specificity calculator.</p>
+          <div class="btn">View Demo &rarr;</div>
+        </a>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

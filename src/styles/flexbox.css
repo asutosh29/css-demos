@@ -1,0 +1,112 @@
+.layout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+@media (min-width: 900px) {
+  .layout-grid {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+.controls-sidebar {
+  flex: 0 0 320px;
+}
+
+.control-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.control-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.control-group span {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.select-input, input[type="range"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-color);
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.select-input:focus {
+  border-color: var(--text-primary);
+}
+
+input[type="range"] {
+  padding: 0;
+  accent-color: var(--text-primary);
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+}
+
+.btn-sm {
+  padding: 0.5rem;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.flex-visualizer {
+  flex: 1;
+  min-height: 500px;
+  display: flex;
+}
+
+.flex-container {
+  display: flex;
+  width: 100%;
+  background: var(--bg-color);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  gap: 16px; /* default */
+  /* This guarantees min-height to show align-items clearly */
+  min-height: 100%; 
+  transition: all 0.3s ease;
+}
+
+.flex-item {
+  background: var(--text-primary);
+  color: var(--surface);
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  /* subtle border so they don't blend if they touch */
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Give them varied sizes so stretch/baseline/etc are obvious */
+.flex-item:nth-child(even) {
+  padding: 2rem 1.5rem;
+  font-size: 1.5rem;
+  background: var(--primary);
+  color: var(--text-primary);
+}
+
+.flex-item:nth-child(3n) {
+  padding: 1.5rem 2.5rem;
+}

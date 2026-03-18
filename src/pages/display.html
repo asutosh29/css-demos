@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display & Visibility Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/display.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Display & Visibility</h1>
+        <p>Control how elements participate in the document flow and whether they are rendered.</p>
+      </div>
+
+      <!-- Section 1: Display Types -->
+      <div class="card demo-section">
+        <h2>1. Display Flow: Inline vs Block</h2>
+        <p class="section-desc">Change the display property of the highlighted elements to see how they interact with surrounding content.</p>
+        
+        <div class="controls">
+          <strong>Set Display:</strong>
+          <button class="btn btn-secondary display-btn active" data-display="inline">Inline (Default for span)</button>
+          <button class="btn btn-secondary display-btn" data-display="block">Block</button>
+          <button class="btn btn-secondary display-btn" data-display="inline-block">Inline-Block</button>
+        </div>
+        
+        <div class="info-panel" id="displayInfo">
+          <h3>Inline</h3>
+          <p>Elements do not start on a new line and only take up as much width as necessary. Width and height properties have no effect.</p>
+        </div>
+
+        <div class="demo-area text-flow-area">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+          <span class="highlight-target display-target">Target 1</span> 
+          Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. 
+          <span class="highlight-target display-target">Target 2</span> 
+          Vivamus suscipit tortor eget felis porttitor volutpat.
+        </div>
+      </div>
+
+      <!-- Section 2: Hidden vs None -->
+      <div class="card demo-section">
+        <h2>2. Visibility vs Display None</h2>
+        <p class="section-desc">Observe the difference in document layout when an element is hidden.</p>
+        
+        <div class="controls">
+          <strong>Action:</strong>
+          <button class="btn btn-secondary hide-btn active" data-action="reset">Reset (Visible)</button>
+          <button class="btn btn-secondary hide-btn" data-action="hidden">Visibility: Hidden</button>
+          <button class="btn btn-secondary hide-btn" data-action="none">Display: None</button>
+        </div>
+
+        <div class="info-panel" id="hideInfo">
+          <h3>Visible</h3>
+          <p>The element is fully visible and participates in the document layout.</p>
+        </div>
+
+        <div class="demo-area flex-boxes">
+          <div class="box">Box A</div>
+          <div class="box hide-target" id="hideTarget">Box B (Target)</div>
+          <div class="box">Box C</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <script type="module" src="/src/scripts/display.js"></script>
+  </body>
+</html>

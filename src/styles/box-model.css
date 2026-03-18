@@ -1,0 +1,147 @@
+.layout-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.controls-sidebar {
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  align-items: center;
+}
+
+.controls-sidebar h3 {
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
+}
+
+.control-group {
+  flex: 1;
+  min-width: 180px;
+  margin-bottom: 0;
+}
+
+.control-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-secondary);
+}
+
+.control-group span {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--primary);
+}
+
+.box-visualizer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--spacing-lg);
+  align-items: flex-start;
+}
+
+.box-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.box-title {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  text-align: center;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: var(--spacing-sm);
+}
+
+.math-panel {
+  background: var(--surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+}
+
+.formula {
+  margin-top: var(--spacing-sm);
+  color: var(--secondary);
+}
+
+/* Visualization Layers */
+.scene {
+  background: var(--bg-color);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Margin Layer (Orange) */
+.margin-area {
+  background-color: rgba(255, 165, 0, 0.2);
+  border: 1px dashed orange;
+  position: relative;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+/* Border Layer (Yellow) */
+.border-area {
+  background-color: rgba(255, 255, 0, 0.4);
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Padding Layer (Green) */
+.padding-area {
+  background-color: rgba(0, 128, 0, 0.2);
+  border: 1px dashed green;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Content Layer (Blue) */
+.content-area {
+  background-color: rgba(0, 0, 255, 0.2);
+  border: 1px dashed blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.2s ease;
+  min-height: 50px; /* arbitrary height to give substance */
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.label {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 0.55rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.4);
+  pointer-events: none;
+  letter-spacing: 0.05em;
+}
+
+/* The actual models respect sizings */
+.content-box-model .content-area {
+  box-sizing: content-box;
+}
+.border-box-model .content-area {
+  box-sizing: border-box;
+}

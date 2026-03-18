@@ -1,0 +1,181 @@
+:root {
+  /* Color Scheme - Flat, Minimal, Warm High Contrast */
+  --bg-color: #f6f5f0;       /* Off-white warm background */
+  --text-primary: #111111;   /* Stark black instead of greyish-blue */
+  --text-secondary: #5e5e5e; /* Crisp medium grey */
+  --primary: #f2ba49;        /* Mustard/ochre yellow from the reference */
+  --secondary: #111111;      /* Solid black for secondary accents/buttons */
+  --accent: #f2ba49;
+  --success: #111111;        /* Replaced vibrant green with black for monochrome vibe */
+  --surface: #ffffff;        /* Pure white for cards */
+  --border: #e5e4de;         /* Very subtle warm border */
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --base-size: 15px;
+  
+  /* Spacing & Layout */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --radius: 6px;            /* Sharper, less bubbly corners */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.02); /* Extremely subtle depth */
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --transition: all 0.2s ease-out;
+}
+
+/* Dark Theme Testing variable overrides example */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-primary: #f1f1f1;
+  --text-secondary: #a0a0a0;
+  --surface: #1e1e1e;
+  --border: #333333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--base-size);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Common Layout Components */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) min(5vw, 2rem);
+}
+
+.header {
+  text-align: left; /* Aligned left to match editorial style */
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.header h1 {
+  font-size: 2.75rem; /* Reduced from 3.5rem */
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-sm);
+}
+
+.header p {
+  color: var(--text-secondary);
+  font-size: 1.1rem; /* Reduced from 1.25rem */
+  max-width: 600px;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem; /* Slightly reduced padding */
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: #d0cece;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--primary);
+  color: #111; /* Contrast against yellow */
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #dbab41; /* Slightly darker mustard */
+}
+
+.btn-secondary {
+  background: var(--surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--text-primary);
+  color: var(--surface);
+  border-color: var(--text-primary);
+}
+
+/* Demo Specific Base Styles */
+.demo-area {
+  background: var(--bg-color);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--spacing-lg);
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.controls {
+  background: var(--surface);
+  padding: var(--spacing-md);
+  border-radius: var(--radius);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid var(--border);
+}
+
+.controls strong {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.controls .btn.active {
+  background: var(--text-primary);
+  color: var(--surface);
+  border-color: var(--text-primary);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+  transition: var(--transition);
+}
+
+.back-link:hover {
+  color: var(--text-primary);
+}

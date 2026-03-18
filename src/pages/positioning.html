@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/positioning.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Positioning Demystified</h1>
+        <p>See how the <code>position</code> property affects element placement in the document flow.</p>
+      </div>
+
+      <div class="controls position-types">
+        <strong>Set Position:</strong>
+        <button class="btn btn-secondary active" data-pos="static">Static (Default)</button>
+        <button class="btn btn-secondary" data-pos="relative">Relative</button>
+        <button class="btn btn-secondary" data-pos="absolute">Absolute</button>
+        <button class="btn btn-secondary" data-pos="fixed">Fixed</button>
+        <button class="btn btn-secondary" data-pos="sticky">Sticky</button>
+      </div>
+      
+      <div class="controls offset-sliders">
+        <div class="slider-group">
+          <label>Top: <span id="topVal">auto</span></label>
+          <input type="range" id="topInput" min="-50" max="250" value="20" disabled>
+        </div>
+        <div class="slider-group">
+          <label>Left: <span id="leftVal">auto</span></label>
+          <input type="range" id="leftInput" min="-50" max="250" value="20" disabled>
+        </div>
+      </div>
+      
+      <div class="info-panel" id="infoPanel">
+        <h3>Static Positioning</h3>
+        <p>The element sits in the normal document flow. <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code>, and <code>z-index</code> properties have no effect.</p>
+      </div>
+
+      <div class="demo-wrapper card">
+        <p class="scroll-hint">Scroll down to see effects of Sticky and Fixed positioning ↓</p>
+        <div class="demo-area" id="demoContainer">
+          <div class="box box-1">Box 1</div>
+          <div class="box box-2">Box 2</div>
+          <div class="box target-box" id="targetBox">Target Box</div>
+          <div class="box box-3">Box 3</div>
+          <div class="box box-4">Box 4</div>
+          
+          <!-- Extra padding to allow scrolling for sticky/fixed demo -->
+          <div class="spacer">Scroll past me...</div>
+          <div class="box box-5">Box 5</div>
+          <div class="spacer">Keep scrolling...</div>
+          <div class="box box-6">Box 6</div>
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/scripts/positioning.js"></script>
+  </body>
+</html>

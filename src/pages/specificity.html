@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Specificity Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/specificity.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Selector Specificity</h1>
+        <p>Understand how CSS decides which rules apply when conflicts occur by calculating the specificity score: (Inline, IDs, Classes, Elements).</p>
+      </div>
+
+      <div class="layout-grid demo-layout">
+        <!-- Controls Sidebar -->
+        <div class="card controls-sidebar">
+          <h3>Build Your Selector</h3>
+          <p class="instruction">Toggle parts of the selector to see how the specificity score changes.</p>
+          
+          <div class="selector-controls">
+            <!-- Inline style -->
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="toggleInline" value="inline">
+                <code>style="..."</code> (Inline)
+              </label>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- IDs -->
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="toggleId" value="id">
+                <code>#header</code> (ID)
+              </label>
+            </div>
+            
+            <!-- Classes / Attributes / Pseudo-classes -->
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="toggleClass" value="class">
+                <code>.card</code> (Class)
+              </label>
+            </div>
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="toggleAttribute" value="attribute">
+                <code>[type="button"]</code> (Attribute)
+              </label>
+            </div>
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="togglePseudoClass" value="pseudo-class">
+                <code>:hover</code> (Pseudo-class)
+              </label>
+            </div>
+            
+            <hr class="divider">
+            
+            <!-- Elements / Pseudo-elements -->
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="toggleElement" value="element">
+                <code>button</code> (Element)
+              </label>
+            </div>
+            <div class="control-group">
+              <label class="control-label">
+                <input type="checkbox" id="togglePseudoElement" value="pseudo-element">
+                <code>::before</code> (Pseudo-element)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Visualizer Area -->
+        <div class="demo-area specificity-visualizer">
+          
+          <div class="score-display-container">
+            <h3>Calculated Specificity</h3>
+            <div class="score-display">
+              <div class="score-tuple">
+                <div class="score-box" id="valInline">0</div>
+                <div class="comma">,</div>
+                <div class="score-box" id="valId">0</div>
+                <div class="comma">,</div>
+                <div class="score-box" id="valClass">0</div>
+                <div class="comma">,</div>
+                <div class="score-box" id="valElement">0</div>
+              </div>
+              <div class="score-labels">
+                <span>Inline</span>
+                <span>IDs</span>
+                <span>Classes</span>
+                <span>Elements</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="target-container">
+            <h3>Winning CSS Rule</h3>
+            <div class="code-preview" id="selectorPreview">
+              <span class="placeholder">Select elements to build a rule...</span>
+            </div>
+            
+            <div class="target-element" id="targetElement">
+              Target Element
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    
+    <script type="module" src="/src/scripts/specificity.js"></script>
+  </body>
+</html>

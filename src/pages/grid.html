@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/flexbox.css"> <!-- We can reuse flexbox styles for sidebar/layout/items -->
+    <link rel="stylesheet" href="/src/styles/grid.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>CSS Grid (2D Layouts)</h1>
+        <p>Master two-dimensional layouts by controlling rows, columns, and internal gaps.</p>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Controls Sidebar -->
+        <div class="card controls-sidebar">
+          <h3>Grid Container Properties</h3>
+          
+          <div class="control-group">
+            <label for="gridColumns">grid-template-columns</label>
+            <select id="gridColumns" class="select-input">
+              <option value="repeat(3, 1fr)">repeat(3, 1fr)</option>
+              <option value="repeat(2, 1fr)">repeat(2, 1fr)</option>
+              <option value="repeat(4, 1fr)">repeat(4, 1fr)</option>
+              <option value="1fr 2fr 1fr">1fr 2fr 1fr</option>
+              <option value="200px 1fr 1fr">200px 1fr 1fr</option>
+              <option value="repeat(auto-fit, minmax(100px, 1fr))">auto-fit minmax 100px</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="alignItems">align-items</label>
+            <select id="alignItems" class="select-input">
+              <option value="stretch">stretch (default)</option>
+              <option value="start">start</option>
+              <option value="end">end</option>
+              <option value="center">center</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="justifyItems">justify-items</label>
+            <select id="justifyItems" class="select-input">
+              <option value="stretch">stretch (default)</option>
+              <option value="start">start</option>
+              <option value="end">end</option>
+              <option value="center">center</option>
+            </select>
+          </div>
+          
+          <div class="control-group">
+            <label for="gapRange">gap: <span id="gapVal">16</span>px</label>
+            <input type="range" id="gapRange" min="0" max="64" value="16">
+          </div>
+          
+          <div class="actions">
+            <button id="addItemBtn" class="btn btn-sm">Add Item</button>
+            <button id="removeItemBtn" class="btn btn-secondary btn-sm">Remove Item</button>
+          </div>
+        </div>
+
+        <!-- Visualizer Area -->
+        <div class="demo-area grid-visualizer card">
+          <div class="grid-container" id="gridContainer">
+            <div class="flex-item">1</div>
+            <div class="flex-item">2</div>
+            <div class="flex-item">3</div>
+            <div class="flex-item">4</div>
+            <div class="flex-item">5</div>
+            <div class="flex-item">6</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <script type="module" src="/src/scripts/grid.js"></script>
+  </body>
+</html>

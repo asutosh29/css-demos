@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Model Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/box-model.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>The Box Model</h1>
+        <p>Understand how padding, borders, and margins affect the total size of an element.</p>
+      </div>
+
+      <div class="layout-grid">
+        <!-- Controls Sidebar -->
+        <div class="card controls-sidebar">
+          <h3>Box Properties</h3>
+          
+          <div class="control-group">
+            <label for="widthRange">Width: <span id="widthVal">200</span>px</label>
+            <input type="range" id="widthRange" min="100" max="400" value="200">
+          </div>
+          
+          <div class="control-group">
+            <label for="paddingRange">Padding: <span id="paddingVal">20</span>px</label>
+            <input type="range" id="paddingRange" min="0" max="100" value="20">
+          </div>
+          
+          <div class="control-group">
+            <label for="borderRange">Border: <span id="borderVal">5</span>px</label>
+            <input type="range" id="borderRange" min="0" max="50" value="5">
+          </div>
+          
+          <div class="control-group">
+            <label for="marginRange">Margin: <span id="marginVal">20</span>px</label>
+            <input type="range" id="marginRange" min="0" max="100" value="20">
+          </div>
+        </div>
+
+        <!-- Visualizer Area -->
+        <div class="demo-area box-visualizer">
+          <!-- Content Box -->
+          <div class="box-column">
+            <h3 class="box-title"><code>box-sizing: content-box</code> (Default)</h3>
+            <div class="math-panel">
+              <p>Requested Width: <span class="val-req-w">200</span>px</p>
+              <p>Computed Width (Total Space):</p>
+              <p class="formula"><span class="val-req-w">200</span> + (<span class="val-pad">20</span>×2) + (<span class="val-brd">5</span>×2) = <strong><span id="contentBoxTotal">250</span>px</strong></p>
+            </div>
+            
+            <div class="scene">
+              <div class="margin-area box-model content-box-model" id="cbMargin">
+                <span class="label margin-label">Margin</span>
+                <div class="border-area" id="cbBorder">
+                  <span class="label border-label">Border</span>
+                  <div class="padding-area" id="cbPadding">
+                    <span class="label padding-label">Padding</span>
+                    <div class="content-area" id="cbContent">
+                      <span class="label content-label">Content</span>
+                      <br>
+                      <span class="val-req-w">200</span> px
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Border Box -->
+          <div class="box-column">
+            <h3 class="box-title"><code>box-sizing: border-box</code> (Recommended)</h3>
+            <div class="math-panel">
+              <p>Requested Width: <span class="val-req-w">200</span>px</p>
+              <p>Computed Width (Total Space):</p>
+              <p class="formula">Width absorbs padding/border. Total = <strong><span id="borderBoxTotal">200</span>px</strong></p>
+            </div>
+            
+            <div class="scene">
+              <div class="margin-area box-model border-box-model" id="bbMargin">
+                <span class="label margin-label">Margin</span>
+                <div class="border-area" id="bbBorder">
+                  <span class="label border-label">Border</span>
+                  <div class="padding-area" id="bbPadding">
+                    <span class="label padding-label">Padding</span>
+                    <div class="content-area" id="bbContent">
+                      <span class="label content-label">Content</span>
+                      <br>
+                      <span id="bbContentActual">150</span>px
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+    <script type="module" src="/src/scripts/box-model.js"></script>
+  </body>
+</html>
