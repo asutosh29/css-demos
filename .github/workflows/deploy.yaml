@@ -1,7 +1,10 @@
-name: Deploy to VPS
+name: Deploy Demo to VPS
 
 on:
   push:
+    branches:
+      - amx/prod
+  pull_request:
     branches:
       - amx/prod
 
@@ -12,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to den
+      - name: Deploy and Build on VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SSH_HOST }}
@@ -21,5 +24,6 @@ jobs:
           script: |
             cd /home/amx/lecture/
             git pull origin amx/prod
-            cd /home/amx/lecture/
+            npm install
+            npm run build
             docker compose up -d

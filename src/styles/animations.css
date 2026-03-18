@@ -1,0 +1,192 @@
+.demo-section {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.demo-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-primary);
+}
+
+.section-desc {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.border-container {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .demo-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.controls-sidebar {
+  padding: var(--spacing-md);
+  border-right: 1px solid var(--border);
+  background: var(--bg-color);
+}
+
+.control-group {
+  margin-bottom: 1rem;
+}
+
+.control-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+}
+
+.control-group select {
+  width: 100%;
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  font-family: var(--font-family);
+  background: var(--surface);
+}
+
+.radio-group label {
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.demo-area {
+  padding: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+.interactive-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  position: relative;
+}
+
+.transform-area .grid-background {
+  flex: 1;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: 
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+  border: 1px dashed #ccc;
+  margin-bottom: var(--spacing-md);
+  overflow: hidden;
+}
+
+.code-preview {
+  background: #111;
+  color: #fff;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.code-preview code {
+  color: var(--primary);
+}
+
+/* Section Components */
+
+/* Transition Target */
+.transition-box {
+  background: var(--primary);
+  color: var(--secondary);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius);
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.transition-box:hover {
+  background: var(--secondary);
+  color: var(--surface);
+  transform: scale(1.1) translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  border-radius: 30px;
+}
+
+/* Transform Target */
+.transform-box {
+  width: 80px;
+  height: 80px;
+  background: var(--primary);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  /* A subtle border to show edges clearly during rotation/skew */
+  border: 2px solid var(--secondary);
+}
+
+/* Animation Targets */
+.animation-box {
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  border-radius: 50%; /* Circle by default */
+}
+
+/* Keyframes Definitions */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-80px); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); border-radius: var(--radius); }
+  50% { transform: rotate(180deg); border-radius: 50%; }
+  100% { transform: rotate(360deg); border-radius: var(--radius); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Animation state classes assigned by JS */
+.bounce { animation-name: bounce; }
+.spin { animation-name: spin; background-color: var(--secondary); border-radius: var(--radius); }
+.pulse { animation-name: pulse; }

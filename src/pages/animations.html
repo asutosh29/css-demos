@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animations & Transforms | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/animations.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Animations & Transforms</h1>
+        <p>Explore how to bring your interfaces to life using CSS Transitions, Transforms, and Keyframes.</p>
+      </div>
+
+      <!-- Section 1: Transitions -->
+      <section class="demo-section">
+        <h2>1. Transitions</h2>
+        <p class="section-desc">Transitions allow property changes in CSS values to occur smoothly over a specified duration rather than immediately.</p>
+        <div class="layout-grid demo-layout border-container">
+          <div class="controls-sidebar">
+            <div class="control-group">
+              <label for="transDuration">Duration: <span id="valDuration">0.3s</span></label>
+              <input type="range" id="transDuration" min="0" max="3" step="0.1" value="0.3">
+            </div>
+            <div class="control-group">
+              <label for="transTiming">Timing Function</label>
+              <select id="transTiming">
+                <option value="ease">ease</option>
+                <option value="linear">linear</option>
+                <option value="ease-in">ease-in</option>
+                <option value="ease-out">ease-out</option>
+                <option value="ease-in-out">ease-in-out</option>
+                <option value="steps(4, end)">steps(4)</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label for="transDelay">Delay: <span id="valDelay">0s</span></label>
+              <input type="range" id="transDelay" min="0" max="2" step="0.1" value="0">
+            </div>
+          </div>
+          <div class="demo-area">
+            <div class="interactive-area">
+              <div id="transitionTarget" class="transition-box">Hover Me</div>
+            </div>
+            <div class="code-preview" id="transitionCode">
+              <code>transition: all 0.3s ease 0s;</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Transforms -->
+      <section class="demo-section">
+        <h2>2. Transforms</h2>
+        <p class="section-desc">Transforms let you modify the coordinate space of the CSS visual formatting model (move, scale, rotate, skew).</p>
+        <div class="layout-grid demo-layout border-container">
+          <div class="controls-sidebar">
+            <div class="control-group">
+              <label for="transX">Translate X: <span id="valTransX">0px</span></label>
+              <input type="range" id="transX" min="-150" max="150" step="1" value="0">
+            </div>
+            <div class="control-group">
+              <label for="transY">Translate Y: <span id="valTransY">0px</span></label>
+              <input type="range" id="transY" min="-150" max="150" step="1" value="0">
+            </div>
+            <div class="control-group">
+              <label for="tScale">Scale: <span id="valScale">1</span></label>
+              <input type="range" id="tScale" min="0.5" max="2" step="0.1" value="1">
+            </div>
+            <div class="control-group">
+              <label for="tRotate">Rotate: <span id="valRotate">0deg</span></label>
+              <input type="range" id="tRotate" min="-360" max="360" step="5" value="0">
+            </div>
+            <div class="control-group">
+              <label for="tSkew">Skew X: <span id="valSkew">0deg</span></label>
+              <input type="range" id="tSkew" min="-45" max="45" step="1" value="0">
+            </div>
+            <button id="resetTransform" class="btn btn-secondary" style="width: 100%; margin-top: 10px;">Reset Transform</button>
+          </div>
+          <div class="demo-area transform-area">
+            <div class="grid-background">
+              <div id="transformTarget" class="transform-box">A</div>
+            </div>
+            <div class="code-preview" id="transformCode">
+              <code>transform: none;</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Keyframes -->
+      <section class="demo-section">
+        <h2>3. Keyframe Animations</h2>
+        <p class="section-desc">Keyframes give you complete control over the intermediate steps in a CSS animation sequence.</p>
+        <div class="layout-grid demo-layout border-container">
+          <div class="controls-sidebar">
+            <div class="control-group radio-group">
+              <p><strong>Animation Preset</strong></p>
+              <label><input type="radio" name="animPreset" value="bounce" checked> Bounce</label>
+              <label><input type="radio" name="animPreset" value="spin"> Spin</label>
+              <label><input type="radio" name="animPreset" value="pulse"> Pulse</label>
+            </div>
+            <hr>
+            <div class="control-group">
+              <label for="animDuration">Duration: <span id="valAnimDuration">1s</span></label>
+              <input type="range" id="animDuration" min="0.2" max="3" step="0.1" value="1">
+            </div>
+            <div class="control-group">
+              <label for="animTiming">Timing Function</label>
+              <select id="animTiming">
+                <option value="ease">ease</option>
+                <option value="linear">linear</option>
+                <option value="ease-in-out">ease-in-out</option>
+              </select>
+            </div>
+            <div class="control-group">
+               <label>
+                 <input type="checkbox" id="animInfinite" checked>
+                 Infinite Loop
+               </label>
+            </div>
+            <div class="control-group">
+               <label>
+                 <input type="checkbox" id="animAlternate">
+                 Alternate Direction
+               </label>
+            </div>
+          </div>
+          <div class="demo-area">
+            <div class="interactive-area">
+              <div id="animationTarget" class="animation-box bounce"></div>
+            </div>
+            <div class="code-preview" id="animationCode">
+              <code>animation: bounce 1s ease infinite normal;</code>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    
+    <script type="module" src="/src/scripts/animations.js"></script>
+  </body>
+</html>
