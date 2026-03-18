@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Queries Demo | HTML/CSS Mastery</title>
+    <link rel="stylesheet" href="/src/styles/global.css">
+    <link rel="stylesheet" href="/src/styles/media-queries.css">
+  </head>
+  <body>
+    <div class="container">
+      <a href="/" class="back-link">&larr; Back to Menu</a>
+      
+      <div class="header">
+        <h1>Media Queries</h1>
+        <p>Learn how CSS conditionally applies styles based on viewport size, orientation, color-scheme preference, and more.</p>
+      </div>
+
+      <!-- Section 1: Resizable Viewport Playground -->
+      <section class="demo-section">
+        <h2>1. Viewport Playground</h2>
+        <p class="section-desc">Drag the right edge of the preview to resize it. Watch breakpoints fire and the layout adapt in real-time.</p>
+
+        <div class="breakpoint-bar" id="breakpointBar">
+          <div class="bp-segment active" data-bp="mobile">
+            <span class="bp-label">Mobile</span>
+            <span class="bp-range">&lt; 480px</span>
+          </div>
+          <div class="bp-segment" data-bp="tablet">
+            <span class="bp-label">Tablet</span>
+            <span class="bp-range">480 – 768px</span>
+          </div>
+          <div class="bp-segment" data-bp="desktop">
+            <span class="bp-label">Desktop</span>
+            <span class="bp-range">768 – 1024px</span>
+          </div>
+          <div class="bp-segment" data-bp="wide">
+            <span class="bp-label">Wide</span>
+            <span class="bp-range">&gt; 1024px</span>
+          </div>
+        </div>
+
+        <div class="playground-wrapper">
+          <div class="width-counter" id="widthCounter">↔ 800px</div>
+          <div class="resizable-frame" id="resizableFrame">
+            <div class="playground-content" id="playgroundContent">
+              <div class="pg-nav">
+                <div class="pg-logo">Acme Co.</div>
+                <div class="pg-nav-links" id="pgNavLinks">
+                  <a href="#">Home</a>
+                  <a href="#">About</a>
+                  <a href="#">Services</a>
+                  <a href="#">Contact</a>
+                </div>
+                <button class="pg-hamburger" id="pgHamburger">☰</button>
+              </div>
+              <div class="pg-cards" id="pgCards">
+                <div class="pg-card">
+                  <div class="pg-card-icon">🎨</div>
+                  <h3>Design</h3>
+                  <p>Beautiful interfaces crafted with care and precision.</p>
+                </div>
+                <div class="pg-card">
+                  <div class="pg-card-icon">⚡</div>
+                  <h3>Develop</h3>
+                  <p>Fast, modern code built for performance and scale.</p>
+                </div>
+                <div class="pg-card">
+                  <div class="pg-card-icon">🚀</div>
+                  <h3>Deploy</h3>
+                  <p>Ship with confidence using automated pipelines.</p>
+                </div>
+              </div>
+            </div>
+            <div class="resize-handle" id="resizeHandle"></div>
+          </div>
+        </div>
+
+        <div class="active-rules-panel card" id="activeRulesPanel">
+          <h3>Active CSS Rules</h3>
+          <pre><code id="activeRulesCode">/* Base styles (no media query) */
+.pg-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}</code></pre>
+        </div>
+      </section>
+
+      <!-- Section 2: Breakpoint Builder -->
+      <section class="demo-section">
+        <h2>2. Breakpoint Builder</h2>
+        <p class="section-desc">Craft your own media query and see it apply to a live preview.</p>
+
+        <div class="layout-grid demo-layout border-container">
+          <div class="controls-sidebar card">
+            <h3>Build a Rule</h3>
+
+            <div class="control-group">
+              <label for="mqFeature">Media Feature</label>
+              <select id="mqFeature" class="select-input">
+                <option value="min-width">min-width</option>
+                <option value="max-width">max-width</option>
+                <option value="orientation">orientation</option>
+                <option value="prefers-color-scheme">prefers-color-scheme</option>
+                <option value="prefers-reduced-motion">prefers-reduced-motion</option>
+              </select>
+            </div>
+
+            <div class="control-group" id="mqValueGroup">
+              <label for="mqValue">Value: <span id="mqValueLabel">600px</span></label>
+              <input type="range" id="mqValue" min="320" max="1200" value="600">
+            </div>
+
+            <div class="control-group" id="mqDiscreteGroup" style="display:none;">
+              <label for="mqDiscreteValue">Value</label>
+              <select id="mqDiscreteValue" class="select-input">
+                <option value="dark">dark</option>
+                <option value="light">light</option>
+              </select>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border); margin: 12px 0;">
+
+            <div class="control-group">
+              <label for="mqProperty">Property to Change</label>
+              <select id="mqProperty" class="select-input">
+                <option value="background-color">background-color</option>
+                <option value="font-size">font-size</option>
+                <option value="flex-direction">flex-direction</option>
+                <option value="grid-template-columns">grid-template-columns</option>
+                <option value="display">display</option>
+              </select>
+            </div>
+
+            <div class="control-group">
+              <label for="mqPropValue">New Value</label>
+              <input type="text" id="mqPropValue" class="select-input" value="#f2ba49" placeholder="e.g. #f2ba49, 2rem, column">
+            </div>
+          </div>
+
+          <div class="builder-preview-area">
+            <div class="code-preview card" id="builderCode">
+              <h3>Generated CSS</h3>
+              <pre><code id="generatedCode">@media (min-width: 600px) {
+  .target {
+    background-color: #f2ba49;
+  }
+}</code></pre>
+            </div>
+            <div class="builder-target-container card">
+              <h3>Live Preview</h3>
+              <div class="builder-target" id="builderTarget">
+                <div class="bt-box" id="btBox">Resize browser to test</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Common Patterns -->
+      <section class="demo-section">
+        <h2>3. Common Patterns</h2>
+        <p class="section-desc">Pre-built responsive patterns. Click each tab to see the code and watch the playground react.</p>
+
+        <div class="patterns-tabs" id="patternsTabs">
+          <button class="pattern-tab active" data-pattern="mobile-first">Mobile-First</button>
+          <button class="pattern-tab" data-pattern="desktop-first">Desktop-First</button>
+          <button class="pattern-tab" data-pattern="responsive-nav">Responsive Nav</button>
+          <button class="pattern-tab" data-pattern="card-reflow">Card Reflow</button>
+          <button class="pattern-tab" data-pattern="dark-mode">Dark Mode</button>
+        </div>
+
+        <div class="pattern-display">
+          <div class="pattern-code card" id="patternCode">
+            <h3>CSS</h3>
+            <pre><code id="patternCodeContent"></code></pre>
+          </div>
+          <div class="pattern-preview" id="patternPreview">
+            <div class="width-counter" id="patternWidthCounter">↔ 800px</div>
+            <div class="resizable-frame pattern-frame" id="patternFrame">
+              <div class="pattern-render" id="patternRender"></div>
+              <div class="resize-handle" id="patternResizeHandle"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Media Features Cheatsheet -->
+      <section class="demo-section">
+        <h2>4. Media Features Cheatsheet</h2>
+        <p class="section-desc">A quick reference of the most useful media features available in CSS.</p>
+
+        <div class="cheatsheet-grid">
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Range</div>
+            <h3>min-width / max-width</h3>
+            <code>@media (min-width: 768px) { … }</code>
+            <p>Targets viewports at or above/below a specific width. The most commonly used media feature.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Range</div>
+            <h3>min-height / max-height</h3>
+            <code>@media (min-height: 600px) { … }</code>
+            <p>Targets viewports at or above/below a specific height. Useful for landscape layouts.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Discrete</div>
+            <h3>orientation</h3>
+            <code>@media (orientation: portrait) { … }</code>
+            <p>Matches when height ≥ width (portrait) or width > height (landscape).</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Discrete</div>
+            <h3>prefers-color-scheme</h3>
+            <code>@media (prefers-color-scheme: dark) { … }</code>
+            <p>Detects if the user has requested a light or dark color theme at the OS level.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Discrete</div>
+            <h3>prefers-reduced-motion</h3>
+            <code>@media (prefers-reduced-motion: reduce) { … }</code>
+            <p>Detects if the user prefers minimal animations. Essential for accessibility.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Discrete</div>
+            <h3>hover</h3>
+            <code>@media (hover: hover) { … }</code>
+            <p>Detects if the primary input mechanism can hover over elements. False on touchscreens.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Range</div>
+            <h3>aspect-ratio</h3>
+            <code>@media (min-aspect-ratio: 16/9) { … }</code>
+            <p>Targets viewports with a specific aspect ratio. Great for cinematic layouts.</p>
+          </div>
+          <div class="cheatsheet-card card">
+            <div class="cs-type">Discrete</div>
+            <h3>pointer</h3>
+            <code>@media (pointer: coarse) { … }</code>
+            <p>Detects input precision — coarse for touch, fine for mouse. Adjust tap targets accordingly.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    
+    <script type="module" src="/src/scripts/media-queries.js"></script>
+  </body>
+</html>

@@ -21,7 +21,8 @@ const pages = [
   'flexbox',
   'grid',
   'specificity',
-  'animations'
+  'animations',
+  'media-queries'
 ];
 
 pages.forEach(page => {
