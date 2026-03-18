@@ -5,7 +5,7 @@ services:
     image: nginx:alpine
     container_name: lecture-frontend
     ports:
-      - "5173:80"
+      - "5173:6767"
     volumes:
       - ./dist:/usr/share/nginx/html:ro
     restart: unless-stopped
