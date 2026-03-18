@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - amx/prod
-  pull_request:
-    branches:
-      - amx/prod
 
 jobs:
   deploy:
@@ -25,5 +22,4 @@ jobs:
             cd /home/amx/lecture/
             git pull origin amx/prod
             npm install
-            npm run build
-            docker compose up -d
+            docker compose up -d --build
